@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Plus, Search } from "lucide-react";
 import { categories, products, Product } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
@@ -71,10 +72,24 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 export default function MenuPage() {
-  const [searchTerm, setSearchTerm] = useState("");
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center font-bold text-[#1a1a1a]/50">Loading menu...</div>}>
+      <MenuContent />
+    </Suspense>
+  );
+}
+
+function MenuContent() {
+  const searchParams = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
   const [category, setCategory] = useState("All");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+
+  useEffect(() => {
+    const q = searchParams.get("search");
+    if (q !== null) setSearchTerm(q);
+  }, [searchParams]);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
