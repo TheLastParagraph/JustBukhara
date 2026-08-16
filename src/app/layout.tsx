@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "Just Bukhara | Restaurant & Bakery in Magam",
   description: "Premium Restaurant, Bakery, and Confectionery located in Magam. Serving Tandoori Chicken, Cakes, Sweets, and Kashmiri delights.",
+  verification: {
+    google: "ELMsLQ4pq017MzZKfdo8IDZchw9_4eegcxxPssji7Xw",
+  },
 };
 
 export default function RootLayout({
