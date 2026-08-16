@@ -90,7 +90,7 @@ export default function Header() {
 
       {/* Mobile Menu Drawer */}
       <div className={`fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm transition-opacity duration-300 sm:hidden ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`} onClick={() => setIsMobileMenuOpen(false)} />
-      <div className={`fixed right-0 top-0 bottom-0 z-[101] w-64 bg-[#f9f8f6] p-8 shadow-2xl transition-transform duration-300 sm:hidden flex flex-col ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`fixed right-0 top-0 bottom-0 z-[101] w-64 bg-[#f9f8f6] p-8 shadow-2xl transition-transform duration-300 sm:hidden flex flex-col pointer-events-auto ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex items-center justify-between mb-8 text-[#1a1a1a]">
           <span className="text-xl font-black">Menu</span>
           <button onClick={() => setIsMobileMenuOpen(false)} className="rounded-full bg-black/5 p-2" aria-label="Close menu">
