@@ -14,21 +14,40 @@
     
     <style>
         .menu-hero {
-            padding: 10rem 0 4rem;
+            background-image: url('Hero.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 12rem 0 6rem;
             text-align: center;
-            background-color: var(--clr-white);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            overflow: hidden;
+        }
+        
+        .menu-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1;
+        }
+        
+        .menu-hero .container {
+            position: relative;
+            z-index: 2;
         }
         
         .menu-hero h1 {
             font-size: clamp(3rem, 6vw, 4.5rem);
-            color: var(--clr-text);
+            color: var(--clr-white);
             margin-bottom: 1rem;
         }
         
         .menu-hero p {
             max-width: 600px;
             margin: 0 auto;
-            color: var(--clr-text-light);
+            color: rgba(255,255,255,0.9);
             font-size: 1.1rem;
         }
 

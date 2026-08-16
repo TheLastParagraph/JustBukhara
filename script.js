@@ -60,25 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Apply specific styles if NOT home (for about.html and products.html)
-            if (!isHome) {
-                const navLinks = document.querySelector('.nav-links');
-                if (navLinks) {
-                    navLinks.style.background = 'rgba(0,0,0,0.05)';
-                    navLinks.style.borderColor = 'rgba(0,0,0,0.1)';
-                    document.querySelectorAll('.nav-links a:not(.active)').forEach(a => a.style.color = 'var(--clr-text)');
-                }
-                const mainLogo = document.getElementById('main-logo');
-                if (mainLogo) mainLogo.style.color = 'var(--clr-dark)';
-                
-                const contactBtn = document.getElementById('contact-btn');
-                if (contactBtn) {
-                    contactBtn.style.background = 'var(--clr-dark)';
-                    contactBtn.style.color = 'var(--clr-white)';
-                }
-                
-                const hamburgerSpans = document.querySelectorAll('#main-hamburger span');
-                hamburgerSpans.forEach(span => span.style.backgroundColor = 'var(--clr-dark)');
-            }
+            // (Removed to keep header visually identical across all screens)
 
             // Re-bind Hamburger menu toggle
             const hamburger = document.querySelector('.hamburger');
