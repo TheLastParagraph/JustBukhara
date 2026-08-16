@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { Product } from "@/lib/data";
-import { Product } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
 import FadeUp from "@/components/FadeUp";
 

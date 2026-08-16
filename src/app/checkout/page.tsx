@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import FadeUp from "@/components/FadeUp";
 

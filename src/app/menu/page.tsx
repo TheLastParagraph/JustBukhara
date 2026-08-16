@@ -5,7 +5,6 @@ import { useMemo, useRef, useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Plus, Search } from "lucide-react";
 import { categories, products, Product } from "@/lib/data";
-import { categories, products, Product } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
 import FadeUp from "@/components/FadeUp";
 

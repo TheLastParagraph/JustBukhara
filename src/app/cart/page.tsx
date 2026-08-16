@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { ArrowLeft, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import FadeUp from "@/components/FadeUp";
 
