@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu & Products | Just Bukhara</title>
+    
+    <meta name="description" content="Explore the full menu of Just Bukhara, featuring our signature Tandoori Chicken, freshly baked cakes, rusks, and traditional Kashmiri Wazwan.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .menu-hero {
+            padding: 10rem 0 4rem;
+            text-align: center;
+            background-color: var(--clr-white);
+        }
+        
+        .menu-hero h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--clr-text);
+            margin-bottom: 1rem;
+        }
+        
+        .menu-hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--clr-text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: var(--clr-bg);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-pill);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-pills {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        
+        .category-pills::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-pill {
+            padding: 8px 20px;
+            border-radius: var(--radius-pill);
+            background: var(--clr-white);
+            color: var(--clr-text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .cat-pill:hover {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .cat-pill.active {
+            background: var(--clr-dark);
+            color: var(--clr-white);
+            border-color: var(--clr-dark);
+        }
+
+        .search-price-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .input-box {
+            background: var(--clr-white);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-pill);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-box input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.95rem;
+            width: 140px;
+        }
+        
+        .input-box input[type="number"] {
+            width: 80px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .product-card {
+            background: var(--clr-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .card-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+
+        .product-image-box {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            background: var(--clr-bg);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Translating Z inside the rotated card makes the emoji pop out in 3D */
+            transform: translateZ(30px);
+        }
+
+        .product-card:hover .product-image-box {
+            transform: translateZ(50px) scale(1.1);
+        }
+
+        .product-details {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background: var(--clr-white);
+            transform: translateZ(10px);
+        }
+
+        .product-details h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            color: var(--clr-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--clr-primary);
+        }
+
+        .add-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(195, 122, 101, 0.1);
+            color: var(--clr-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .add-btn {
+            background: var(--clr-primary);
+            color: var(--clr-white);
+            transform: rotate(90deg);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--clr-bg);
+            border-radius: var(--radius-lg);
+            grid-column: 1 / -1;
+            display: none;
+        }
+        
+        .empty-state.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+            }
+            .search-price-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .input-box input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- Menu Hero -->
+    <section class="menu-hero fade-up">
+        <div class="container">
+            <h1>Our Menu</h1>
+            <p>Explore our wide range of authentic Kashmiri dishes, freshly baked treats, and signature tandoori specialties.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-bar fade-up">
+                <div class="category-pills" id="categoryFilter">
+                    <button class="cat-pill active" data-cat="All">All</button>
+                    <button class="cat-pill" data-cat="Restaurant">Restaurant</button>
+                    <button class="cat-pill" data-cat="Bakery">Bakery</button>
+                    <button class="cat-pill" data-cat="Sweets">Sweets</button>
+                </div>
+                
+                <div class="search-price-group">
+                    <div class="input-box">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5c5c5c" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="searchInput" placeholder="Search menu...">
+                    </div>
+                    <div class="input-box">
+                        <span style="color: #5c5c5c; font-weight: 500;">₹</span>
+                        <input type="number" id="minPrice" placeholder="Min" min="0">
+                        <span style="color: #5c5c5c;">-</span>
+                        <input type="number" id="maxPrice" placeholder="Max" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="product-grid fade-up" id="productGrid">
+                <!-- Javascript will populate this -->
+            </div>
+            
+            <div class="empty-state" id="emptyState">
+                <h3>No items found</h3>
+                <p style="color: var(--clr-text-light); margin-top: 10px;">Try adjusting your search or price filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Product Data
+        const products = [
+            { id: 1, name: "Tandoori Chicken", category: "Restaurant", price: 450, emoji: "🍗", bg: "#fae8e3", desc: "Signature smoky and tender chicken marinated in authentic spices." },
+            { id: 2, name: "Butter Chicken", category: "Restaurant", price: 500, emoji: "🥘", bg: "#fce9cc", desc: "Rich and creamy tomato gravy with perfectly cooked chicken pieces." },
+            { id: 3, name: "Chicken Biryani", category: "Restaurant", price: 350, emoji: "🍛", bg: "#e9f0d8", desc: "Aromatic basmati rice cooked with flavorful Kashmiri spices." },
+            { id: 4, name: "Butter Chicken Pizza", category: "Restaurant", price: 400, emoji: "🍕", bg: "#fce3e3", desc: "A fusion delight combining our famous butter chicken with a crispy crust." },
+            { id: 5, name: "Wazwan Platter", category: "Restaurant", price: 1000, emoji: "🍲", bg: "#f5e6e6", desc: "A traditional multi-course meal featuring rich Kashmiri heritage dishes." },
+            { id: 6, name: "Custom Celebration Cake", category: "Bakery", price: 800, emoji: "🎂", bg: "#e8f0fe", desc: "Freshly baked on-site, perfect for family functions and birthdays." },
+            { id: 7, name: "Fresh Rusks", category: "Bakery", price: 120, emoji: "🥖", bg: "#f3eadc", desc: "Crunchy and buttery rusks manufactured daily in our bakery." },
+            { id: 8, name: "Sweet Pastries", category: "Bakery", price: 150, emoji: "🍰", bg: "#fce3f6", desc: "Delicate and fluffy pastries in a variety of seasonal flavors." },
+            { id: 9, name: "Kashmiri Basrakh", category: "Sweets", price: 250, emoji: "🥮", bg: "#fcf3d9", desc: "Buttery, crunchy, melt-in-your-mouth traditional Kashmiri sweet." },
+            { id: 10, name: "Hot Coffee", category: "Restaurant", price: 100, emoji: "☕", bg: "#ede5d8", desc: "Perfectly brewed warm coffee to accompany your baked treats." }
+        ];
+
+        const grid = document.getElementById('productGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('searchInput');
+        const minPriceInput = document.getElementById('minPrice');
+        const maxPriceInput = document.getElementById('maxPrice');
+        const catPills = document.querySelectorAll('.cat-pill');
+        
+        let currentCategory = 'All';
+
+        function renderProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const min = minPriceInput.value ? parseInt(minPriceInput.value) : 0;
+            const max = maxPriceInput.value ? parseInt(maxPriceInput.value) : Infinity;
+
+            const filtered = products.filter(p => {
+                const matchCat = currentCategory === 'All' || p.category === currentCategory;
+                const matchSearch = p.name.toLowerCase().includes(searchTerm);
+                const matchPrice = p.price >= min && p.price <= max;
+                return matchCat && matchSearch && matchPrice;
+            });
+
+            grid.innerHTML = '';
+            
+            if (filtered.length === 0) {
+                emptyState.classList.add('active');
+            } else {
+                emptyState.classList.remove('active');
+                filtered.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <div class="card-inner">
+                            <div class="product-image-box" style="background-color: ${p.bg}">
+                                ${p.emoji}
+                            </div>
+                            <div class="product-details">
+                                <h3>${p.name}</h3>
+                                <p class="product-desc">${p.desc}</p>
+                                <div class="product-footer">
+                                    <span class="price">₹${p.price}</span>
+                                    <button class="add-btn">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 3D Hover Effect
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left; // x position within the element
+                        const y = e.clientY - rect.top;  // y position within the element
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        const rotateX = ((y - centerY) / centerY) * -15; // Max 15deg rotation
+                        const rotateY = ((x - centerX) / centerX) * 15;
+                        
+                        const inner = card.querySelector('.card-inner');
+                        inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        const inner = card.querySelector('.card-inner');
+                        inner.style.transform = 'rotateX(0) rotateY(0)';
+                        inner.style.transition = 'transform 0.5s ease-out';
+                        setTimeout(() => { inner.style.transition = 'transform 0.1s ease-out'; }, 500);
+                    });
+
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', renderProducts);
+        minPriceInput.addEventListener('input', renderProducts);
+        maxPriceInput.addEventListener('input', renderProducts);
+
+        catPills.forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                catPills.forEach(p => p.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.dataset.cat;
+                renderProducts();
+            });
+        });
+
+        // Initial Render
+        renderProducts();
+    </script>
+</body>
+</html>

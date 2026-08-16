@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Just Bukhara</title>
+    
+    <meta name="description" content="Learn about the story behind Just Bukhara, a registered micro-enterprise and highly rated local restaurant and bakery in Magam, Kashmir.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .about-hero {
+            background-color: var(--clr-primary-light);
+            padding: 12rem 0 6rem;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        
+        .about-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1.5rem;
+            color: var(--clr-dark);
+        }
+        
+        .about-hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--clr-text-light);
+        }
+
+        .story-section {
+            padding: 8rem 0;
+            background-color: var(--clr-white);
+        }
+
+        .story-grid {
+            display: flex;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            color: var(--clr-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-stats {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--clr-bg);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            color: var(--clr-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-weight: 500;
+            color: var(--clr-text);
+        }
+        
+        .dual-identity {
+            background-color: var(--clr-bg);
+            padding: 8rem 0;
+            border-radius: 40px;
+        }
+        
+        .dual-identity-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .dual-identity-header h2 {
+            font-size: 3.5rem;
+        }
+        
+        .dual-cards {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .dual-card {
+            flex: 1;
+            background: var(--clr-white);
+            padding: 4rem;
+            border-radius: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .dual-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .dual-card p {
+            font-size: 1.1rem;
+            color: var(--clr-text-light);
+        }
+        
+        @media (max-width: 1024px) {
+            .story-grid {
+                flex-direction: column;
+            }
+            .dual-cards {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 8rem 0 4rem;
+            }
+            .stat-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- About Hero -->
+    <section class="about-hero fade-up">
+        <div class="container">
+            <div class="tag" style="justify-content: center; width: 100%;"><span class="dot"></span> Our Journey</div>
+            <h1>The Story of Just Bukhara</h1>
+            <p>From our registration as a micro-enterprise to becoming one of Magam's most celebrated dining destinations.</p>
+        </div>
+    </section>
+
+    <!-- Story & Stats -->
+    <section class="story-section" id="story">
+        <div class="container fade-up">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>Rooted in Magam.</h2>
+                    <p>Officially incorporated on August 4, 2022, as a proprietorship micro-enterprise, Just Bukhara was established with a dual focus: delivering exceptional restaurant services and manufacturing fresh bakery products on-site.</p>
+                    <p>Since our doors opened, we have focused on providing generous portions, courteous service, and a cozy atmosphere that makes every family meal or quick takeaway a memorable experience. Today, we are proud to be a local staple located opposite the Indian Oil Petrol Pump on Gulmarg Road.</p>
+                </div>
+                <div class="story-stats">
+                    <div class="stat-card">
+                        <h3>2022</h3>
+                        <p>Year Established</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>1,000+</h3>
+                        <p>Customer Reviews</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>4.0</h3>
+                        <p>Average Rating</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Locally Owned</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Identity -->
+    <section class="section">
+        <div class="container fade-up">
+            <div class="dual-identity">
+                <div class="dual-identity-header">
+                    <h2>More than just a restaurant.</h2>
+                </div>
+                <div class="container">
+                    <div class="dual-cards">
+                        <div class="dual-card">
+                            <div class="tag"><span class="dot"></span> Culinary Experience</div>
+                            <h3>The Restaurant</h3>
+                            <p>Our restaurant side is celebrated for our signature Tandoori Chicken, rich Butter Chicken, and traditional Kashmiri Wazwan. We focus on providing high-quality ingredients, resulting in dishes that our community praises for both taste and value.</p>
+                        </div>
+                        <div class="dual-card">
+                            <div class="tag"><span class="dot"></span> On-site Manufacturing</div>
+                            <h3>The Bakery</h3>
+                            <p>We are fully registered for the manufacture of biscuits, cakes, pastries, and rusks. Our bakery team crafts everything fresh daily, ensuring our famous basrakh and special occasion cakes always meet our strict standards for quality and freshness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
