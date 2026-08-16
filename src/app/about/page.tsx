@@ -29,6 +29,19 @@ export default function About() {
         </FadeUp>
       </div>
 
+      {/* Cinematic Video Section */}
+      <section className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a1a1a]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          src="/promo.mp4"
+        />
+        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+      </section>
+
       {/* Story Content */}
       <section className="py-24 max-w-[1000px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">

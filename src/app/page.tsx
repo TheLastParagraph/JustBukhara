@@ -55,6 +55,19 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Promo Video Section */}
+        <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-[#1a1a1a]">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
+            src="/promo.mp4"
+          />
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        </section>
+
         <section id="restaurant" className="bg-[#fbfaf7] px-8 py-16 sm:px-12 lg:px-20 xl:px-28">
           <FadeUp>
             <div className="mb-7 flex items-center gap-2 text-sm font-semibold">
