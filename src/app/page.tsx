@@ -34,14 +34,14 @@ export default function Home() {
             Pantry
           </div>
 
-          <div className="relative z-10 max-w-[460px] pt-4 sm:pt-8">
+          <div className="relative z-10 mx-auto flex max-w-[460px] flex-col items-center pt-20 text-center sm:mx-0 sm:items-start sm:pt-8 sm:text-left">
             <h1 className="text-[2.8rem] font-black leading-[0.98] tracking-normal drop-shadow-sm sm:text-[4.1rem] lg:text-[4.6rem]">
               Flourished Fantasy Bakery
             </h1>
             <p className="mt-20 max-w-[440px] text-xs leading-5 text-white/80 sm:mt-24">
               Just Bukhara brings warm bakery craft, comfort food, and celebration-ready cakes together in Magam.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
               <a
                 href="tel:+919597710592"
                 className="rounded-full bg-white px-5 py-3 text-xs font-bold text-[#17120f] transition hover:bg-[#f3eee7]"
