@@ -3,11 +3,17 @@ import Link from "next/link";
 import { ArrowUpRight, CakeSlice, ChefHat, Cookie, MapPin, Phone } from "lucide-react";
 import FadeUp from "@/components/FadeUp";
 
+import heroImage from "../../public/Hero.png";
+import cakeImage from "../../public/cake.jpg";
+import chickenImage from "../../public/chicken.jpg";
+import biscuitsImage from "../../public/biscuits.jpg";
+import sweetsImage from "../../public/sweets.jpg";
+
 const picks = [
-  { label: "Seasonal", name: "Custom Cakes", color: "from-[#d8edf0] to-[#f7fbfb]", image: "/cake.jpg" },
-  { label: "Signature", name: "Tandoori Chicken", color: "from-[#f3dcc7] to-[#fff7ef]", image: "/chicken.jpg" },
-  { label: "Fresh", name: "Bakery Biscuits", color: "from-[#d7c2ef] to-[#fbf4ff]", image: "/biscuits.jpg" },
-  { label: "Classic", name: "Kashmiri Sweets", color: "from-[#e7b2a7] to-[#fff0ed]", image: "/sweets.jpg" },
+  { label: "Seasonal", name: "Custom Cakes", color: "from-[#d8edf0] to-[#f7fbfb]", image: cakeImage },
+  { label: "Signature", name: "Tandoori Chicken", color: "from-[#f3dcc7] to-[#fff7ef]", image: chickenImage },
+  { label: "Fresh", name: "Bakery Biscuits", color: "from-[#d7c2ef] to-[#fbf4ff]", image: biscuitsImage },
+  { label: "Classic", name: "Kashmiri Sweets", color: "from-[#e7b2a7] to-[#fff0ed]", image: sweetsImage },
 ];
 
 export default function Home() {
@@ -17,7 +23,7 @@ export default function Home() {
         <section className="relative h-[620px] overflow-hidden bg-[#c66e60] px-8 pb-10 pt-28 text-white sm:h-[690px] sm:px-12 lg:h-[720px] lg:px-16 xl:px-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_35%,rgba(255,215,198,0.5),transparent_34%),linear-gradient(135deg,#b95649_0%,#d69188_100%)]" />
           <Image
-            src="/Hero.png"
+            src={heroImage}
             alt="Chocolate chip cookies falling into a glass of milk"
             fill
             priority
