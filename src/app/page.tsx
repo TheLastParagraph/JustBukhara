@@ -30,9 +30,6 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-[58%_48%]"
           />
-          <div className="pointer-events-none absolute -bottom-9 left-8 text-[8rem] font-black leading-none text-white/10 sm:text-[11rem] lg:left-16 xl:left-20">
-            Pantry
-          </div>
 
           <div className="relative z-10 mx-auto flex max-w-[460px] flex-col items-center pt-20 text-center sm:mx-0 sm:items-start sm:pt-8 sm:text-left">
             <h1 className="text-[2.8rem] font-black leading-[0.98] tracking-normal drop-shadow-sm sm:text-[4.1rem] lg:text-[4.6rem]">
