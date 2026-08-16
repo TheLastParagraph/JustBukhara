@@ -53,27 +53,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </section>
 
-        {/* Advertisement Video */}
-        <section className="bg-[#fbfaf7] px-8 py-16 sm:px-12 lg:px-20 xl:px-28">
-          <h2 className="text-3xl md:text-4xl font-serif font-black text-[#1a1a1a] mb-8 text-center">
-            See Us in <span className="text-[#C37A65]">Action.</span>
-          </h2>
-          <div className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-white p-2 md:p-3 relative z-10">
-            <video 
-              src="/promo.mp4" 
-              controls 
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-auto rounded-2xl shadow-inner bg-black"
-              preload="metadata"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
         </section>
 
         <section id="restaurant" className="bg-[#fbfaf7] px-8 py-16 sm:px-12 lg:px-20 xl:px-28">
@@ -138,6 +118,27 @@ export default function Home() {
                 ))}
               </div>
             </FadeUp>
+          </div>
+        </section>
+
+        {/* Advertisement Video */}
+        <section className="bg-[#fbfaf7] px-8 py-16 sm:px-12 lg:px-20 xl:px-28">
+          <h2 className="text-3xl md:text-4xl font-serif font-black text-[#1a1a1a] mb-8 text-center">
+            See Us in <span className="text-[#C37A65]">Action.</span>
+          </h2>
+          <div className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-white p-2 md:p-3 relative z-10">
+            <video 
+              src="/promo.mp4" 
+              controls 
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto rounded-2xl shadow-inner bg-black"
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </section>
 
