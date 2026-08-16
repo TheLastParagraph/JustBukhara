@@ -55,17 +55,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Promo Video Section */}
-        <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-[#1a1a1a]">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-90"
-            src="/promo.mp4"
-          />
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        {/* Advertisement Video */}
+        <section className="bg-[#fbfaf7] px-8 py-16 sm:px-12 lg:px-20 xl:px-28">
+          <h2 className="text-3xl md:text-4xl font-serif font-black text-[#1a1a1a] mb-8 text-center">
+            See Us in <span className="text-[#C37A65]">Action.</span>
+          </h2>
+          <div className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-white p-2 md:p-3 relative z-10">
+            <video 
+              src="/promo.mp4" 
+              controls 
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto rounded-2xl shadow-inner bg-black"
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </section>
 
         <section id="restaurant" className="bg-[#fbfaf7] px-8 py-16 sm:px-12 lg:px-20 xl:px-28">

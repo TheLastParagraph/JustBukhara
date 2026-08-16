@@ -29,17 +29,25 @@ export default function About() {
         </FadeUp>
       </div>
 
-      {/* Cinematic Video Section */}
-      <section className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden bg-[#1a1a1a]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-          src="/promo.mp4"
-        />
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+      {/* Advertisement Video */}
+      <section className="bg-[#f9f8f6] px-6 py-16 md:px-10 mt-12 mb-12 max-w-[1200px] mx-auto rounded-[40px]">
+        <h2 className="text-3xl md:text-4xl font-serif font-black text-[#1a1a1a] mb-8 text-center">
+          See Us in <span className="text-[#C37A65]">Action.</span>
+        </h2>
+        <div className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-white p-2 md:p-3 relative z-10">
+          <video 
+            src="/promo.mp4" 
+            controls 
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto rounded-2xl shadow-inner bg-black"
+            preload="metadata"
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </section>
 
       {/* Story Content */}
