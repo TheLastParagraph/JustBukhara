@@ -1,4 +1,5 @@
 import { Award, Clock, Users } from "lucide-react";
+import FadeUp from "@/components/FadeUp";
 
 export const metadata = {
   title: "About Us | Just Bukhara",
@@ -14,7 +15,7 @@ export default function About() {
         style={{ backgroundImage: "url('/Hero.png')" }}
       >
         {/* Overlay removed as per user request */}
-        <div className="relative z-10 max-w-2xl px-6 animate-fade-up">
+        <FadeUp className="relative z-10 max-w-2xl px-6">
           <div className="inline-flex items-center gap-2 text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider uppercase mb-6">
             <span className="w-2 h-2 rounded-full bg-white"></span>
             Our Story
@@ -25,13 +26,13 @@ export default function About() {
           <p className="text-white/90 text-lg font-light leading-relaxed">
             From humble beginnings to a local culinary landmark in Magam. Discover the passion behind every dish we serve.
           </p>
-        </div>
+        </FadeUp>
       </div>
 
       {/* Story Content */}
       <section className="py-24 max-w-[1000px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="animate-fade-up">
+          <FadeUp>
             <h2 className="text-4xl font-serif mb-6 text-[#1a1a1a]">Our Journey</h2>
             <div className="space-y-6 text-[#1a1a1a]/70 font-light leading-relaxed text-lg">
               <p>
@@ -44,11 +45,11 @@ export default function About() {
                 Whether it's our signature smoky Tandoori Chicken, the traditional grand Wazwan for special occasions, or our daily fresh-baked biscuits and custom cakes, we take immense pride in preserving authentic flavors while maintaining the highest hygiene standards.
               </p>
             </div>
-          </div>
+          </FadeUp>
           
           <div className="grid grid-cols-1 gap-6">
             {/* Stat Card 1 */}
-            <div className="bg-[#f9f8f6] border border-[#1a1a1a]/5 p-8 rounded-3xl flex items-start gap-6 animate-fade-up delay-75">
+            <FadeUp delay={0} className="bg-[#f9f8f6] border border-[#1a1a1a]/5 p-8 rounded-3xl flex items-start gap-6">
               <div className="w-14 h-14 bg-[#e8dcd6] text-[#C37A65] rounded-full flex items-center justify-center shrink-0">
                 <Clock className="w-6 h-6" />
               </div>
@@ -56,10 +57,10 @@ export default function About() {
                 <h3 className="text-2xl font-serif mb-2 text-[#1a1a1a]">Since 2022</h3>
                 <p className="text-[#1a1a1a]/60 font-light text-sm">Serving the community of Magam with dedication and passion.</p>
               </div>
-            </div>
+            </FadeUp>
 
             {/* Stat Card 2 */}
-            <div className="bg-[#f9f8f6] border border-[#1a1a1a]/5 p-8 rounded-3xl flex items-start gap-6 animate-fade-up delay-150">
+            <FadeUp delay={100} className="bg-[#f9f8f6] border border-[#1a1a1a]/5 p-8 rounded-3xl flex items-start gap-6">
               <div className="w-14 h-14 bg-[#e8dcd6] text-[#C37A65] rounded-full flex items-center justify-center shrink-0">
                 <Award className="w-6 h-6" />
               </div>
@@ -67,10 +68,10 @@ export default function About() {
                 <h3 className="text-2xl font-serif mb-2 text-[#1a1a1a]">4.6/5 Rating</h3>
                 <p className="text-[#1a1a1a]/60 font-light text-sm">Consistently highly rated by our wonderful customers on Google.</p>
               </div>
-            </div>
+            </FadeUp>
 
             {/* Stat Card 3 */}
-            <div className="bg-[#f9f8f6] border border-[#1a1a1a]/5 p-8 rounded-3xl flex items-start gap-6 animate-fade-up delay-200">
+            <FadeUp delay={200} className="bg-[#f9f8f6] border border-[#1a1a1a]/5 p-8 rounded-3xl flex items-start gap-6">
               <div className="w-14 h-14 bg-[#e8dcd6] text-[#C37A65] rounded-full flex items-center justify-center shrink-0">
                 <Users className="w-6 h-6" />
               </div>
@@ -78,7 +79,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif mb-2 text-[#1a1a1a]">Registered</h3>
                 <p className="text-[#1a1a1a]/60 font-light text-sm">Certified Micro-Enterprise (UDYAM-JK-04-0004523).</p>
               </div>
-            </div>
+            </FadeUp>
           </div>
         </div>
       </section>

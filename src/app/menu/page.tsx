@@ -5,7 +5,9 @@ import { useMemo, useRef, useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Plus, Search } from "lucide-react";
 import { categories, products, Product } from "@/lib/data";
+import { categories, products, Product } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
+import FadeUp from "@/components/FadeUp";
 
 function ProductCard({ product }: { product: Product }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -109,18 +111,18 @@ function MenuContent() {
         style={{ backgroundImage: "url('/Hero.png')" }}
       >
         <div className="absolute inset-0 bg-[#8f453b]/35" />
-        <div className="relative z-10 max-w-2xl px-6">
+        <FadeUp className="relative z-10 max-w-2xl px-6">
           <h1 className="mb-6 text-4xl font-black text-white md:text-5xl lg:text-6xl">
             Explore Our Menu
           </h1>
           <p className="text-lg font-light leading-relaxed text-white/90">
             Restaurant dishes, custom cakes, bakery products, sweets, coffee, and Kashmiri favorites from Just Bukhara.
           </p>
-        </div>
+        </FadeUp>
       </div>
 
       <div className="mx-auto w-full max-w-[1400px] px-6 py-16 md:px-10">
-        <div className="mb-4 rounded-3xl bg-white p-6 shadow-sm">
+        <FadeUp className="mb-4 rounded-3xl bg-white p-6 shadow-sm">
           <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
             <div className="flex w-full gap-2 overflow-x-auto pb-2 lg:w-auto lg:pb-0">
               {categories.map((item) => (
@@ -169,16 +171,20 @@ function MenuContent() {
               </div>
             </div>
           </div>
-        </div>
+        </FadeUp>
 
-        <p className="mb-12 text-sm text-[#1a1a1a]/55">
-          Prices shown are starting estimates. Final availability, delivery, and total are confirmed on WhatsApp checkout.
-        </p>
+        <FadeUp>
+          <p className="mb-12 text-sm text-[#1a1a1a]/55">
+            Prices shown are starting estimates. Final availability, delivery, and total are confirmed on WhatsApp checkout.
+          </p>
+        </FadeUp>
 
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {filteredProducts.map((product, index) => (
+              <FadeUp key={product.id} delay={(index % 4) * 100}>
+                <ProductCard product={product} />
+              </FadeUp>
             ))}
           </div>
         ) : (

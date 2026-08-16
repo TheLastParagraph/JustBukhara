@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { Product } from "@/lib/data";
+import { Product } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
+import FadeUp from "@/components/FadeUp";
 
 export default function ProductClient({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
@@ -19,19 +21,21 @@ export default function ProductClient({ product }: { product: Product }) {
 
   return (
     <div className="min-h-screen bg-[#fbfaf7] px-6 pb-20 pt-36 sm:px-10 lg:px-20 xl:px-28">
-      <Link href="/menu" className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-black/55 hover:text-black">
-        <ArrowLeft className="h-4 w-4" />
-        Back to Shop
-      </Link>
+      <FadeUp>
+        <Link href="/menu" className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-black/55 hover:text-black">
+          <ArrowLeft className="h-4 w-4" />
+          Back to Shop
+        </Link>
+      </FadeUp>
 
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-center">
-        <div className="grid aspect-square place-items-center rounded-lg bg-gradient-to-br from-[#c66e60] to-[#eed8cf] p-8 text-white">
+        <FadeUp delay={100} className="grid aspect-square place-items-center rounded-lg bg-gradient-to-br from-[#c66e60] to-[#eed8cf] p-8 text-white">
           <div className="text-[7rem] font-black leading-none text-white/60 sm:text-[11rem]">
             {product.emoji}
           </div>
-        </div>
+        </FadeUp>
 
-        <div>
+        <FadeUp delay={200}>
           <span className="inline-flex rounded-full bg-[#f0efeb] px-4 py-2 text-xs font-black text-[#b95649]">
             {product.badge}
           </span>
@@ -73,7 +77,7 @@ export default function ProductClient({ product }: { product: Product }) {
           <p className="mt-6 text-sm leading-6 text-black/50">
             Exact availability, portion size, customization, delivery, and final price are confirmed on WhatsApp checkout.
           </p>
-        </div>
+        </FadeUp>
       </div>
     </div>
   );
