@@ -13,7 +13,7 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  const isLightBackground = pathname === "/cart" || pathname === "/checkout" || pathname?.startsWith("/product");
+  const isLightBackground = pathname === "/cart" || pathname === "/checkout" || pathname === "/contact" || pathname?.startsWith("/product");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,9 +51,12 @@ export default function Header() {
           >
             Cart
           </Link>
-          <a href="tel:+919597710592" className={`rounded-full px-3 py-2 ${isLightBackground ? "text-[#1a1a1a]/85" : "text-white/85"}`}>
-            Order
-          </a>
+          <Link
+            href="/contact"
+            className={`rounded-full px-3 py-2 ${pathname === "/contact" ? (isLightBackground ? "bg-[#1a1a1a] text-white" : "bg-white text-[#11100d]") : (isLightBackground ? "text-[#1a1a1a]/85" : "text-white/85")}`}
+          >
+            Contact us
+          </Link>
         </nav>
 
         <Link href="/" className="text-2xl font-black tracking-normal">
@@ -71,9 +74,9 @@ export default function Header() {
               className="w-16 bg-transparent outline-none transition-all placeholder:text-inherit/60 focus:w-32"
             />
           </form>
-          <button className={`grid h-8 w-8 place-items-center rounded-full backdrop-blur-md ring-1 ${isLightBackground ? 'bg-black/5 ring-black/10 text-[#1a1a1a]' : 'bg-white/18 ring-white/25 text-white'}`} aria-label="Highlights">
+          <Link href="/contact" className={`grid h-8 w-8 place-items-center rounded-full backdrop-blur-md ring-1 ${isLightBackground ? 'bg-black/5 ring-black/10 text-[#1a1a1a]' : 'bg-white/18 ring-white/25 text-white'}`} aria-label="Contact Us">
             <Sparkles className="h-3.5 w-3.5" />
-          </button>
+          </Link>
           <Link className={`relative grid h-8 w-8 place-items-center rounded-full backdrop-blur-md ring-1 ${isLightBackground ? 'bg-black/5 ring-black/10 text-[#1a1a1a]' : 'bg-white/18 ring-white/25 text-white'}`} href="/cart" aria-label="View cart">
             <ShoppingCart className="h-3.5 w-3.5" />
             {cartCount > 0 && (
@@ -102,6 +105,7 @@ export default function Header() {
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className={`text-lg font-bold transition-colors ${pathname === "/about" ? "text-[#C37A65]" : "hover:text-[#C37A65]"}`}>About us</Link>
           <Link href="/menu" onClick={() => setIsMobileMenuOpen(false)} className={`text-lg font-bold transition-colors ${pathname === "/menu" ? "text-[#C37A65]" : "hover:text-[#C37A65]"}`}>Menu</Link>
           <Link href="/cart" onClick={() => setIsMobileMenuOpen(false)} className={`text-lg font-bold transition-colors ${pathname === "/cart" || pathname === "/checkout" ? "text-[#C37A65]" : "hover:text-[#C37A65]"}`}>Cart</Link>
+          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={`text-lg font-bold transition-colors ${pathname === "/contact" ? "text-[#C37A65]" : "hover:text-[#C37A65]"}`}>Contact us</Link>
           <a href="tel:+919597710592" className="text-lg font-bold transition-colors hover:text-[#C37A65]">Order</a>
         </nav>
         
