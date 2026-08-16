@@ -8,6 +8,31 @@ interface FadeUpProps {
   delay?: number;
 }
 
+let observer: IntersectionObserver | null = null;
+const callbacks = new Map<Element, () => void>();
+
+function getObserver() {
+  if (typeof window === "undefined") return null;
+  if (!observer) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const callback = callbacks.get(entry.target);
+            if (callback) {
+              callback();
+              callbacks.delete(entry.target);
+              observer!.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      { rootMargin: "0px", threshold: 0.15 }
+    );
+  }
+  return observer;
+}
+
 export default function FadeUp({ children, className = "", delay = 0 }: FadeUpProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
@@ -16,21 +41,17 @@ export default function FadeUp({ children, className = "", delay = 0 }: FadeUpPr
     const currentRef = domRef.current;
     if (!currentRef) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target); // Trigger only once
-          }
-        });
-      },
-      { rootMargin: "0px", threshold: 0.15 } // 15% visibility triggers animation
-    );
+    const obs = getObserver();
+    if (obs) {
+      callbacks.set(currentRef, () => setIsVisible(true));
+      obs.observe(currentRef);
+    }
 
-    observer.observe(currentRef);
     return () => {
-      if (currentRef) observer.unobserve(currentRef);
+      if (currentRef) {
+        callbacks.delete(currentRef);
+        if (obs) obs.unobserve(currentRef);
+      }
     };
   }, []);
 

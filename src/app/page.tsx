@@ -130,9 +130,6 @@ export default function Home() {
             <video 
               src="/promo.mp4" 
               controls 
-              autoPlay
-              muted
-              loop
               playsInline
               className="w-full h-auto rounded-2xl shadow-inner bg-black"
               preload="metadata"
