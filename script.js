@@ -19,26 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach(el => observer.observe(el));
 
-    // Navigation Component Loader
+    // Navigation Component Loader (now loads from base.html master template)
     async function loadComponents() {
         try {
-            // Load Header
-            const headerPlaceholder = document.getElementById('header-placeholder');
-            if (headerPlaceholder) {
-                const headerRes = await fetch('header.html');
-                if (headerRes.ok) {
-                    const headerHtml = await headerRes.text();
-                    headerPlaceholder.outerHTML = headerHtml;
+            const baseRes = await fetch('base.html');
+            if (baseRes.ok) {
+                const baseHtmlText = await baseRes.text();
+                const parser = new DOMParser();
+                const baseDoc = parser.parseFromString(baseHtmlText, 'text/html');
+                
+                // Load Header
+                const headerPlaceholder = document.getElementById('header-placeholder');
+                if (headerPlaceholder) {
+                    const masterHeader = baseDoc.querySelector('header.navbar');
+                    if (masterHeader) headerPlaceholder.outerHTML = masterHeader.outerHTML;
                 }
-            }
 
-            // Load Footer
-            const footerPlaceholder = document.getElementById('footer-placeholder');
-            if (footerPlaceholder) {
-                const footerRes = await fetch('footer.html');
-                if (footerRes.ok) {
-                    const footerHtml = await footerRes.text();
-                    footerPlaceholder.outerHTML = footerHtml;
+                // Load Footer
+                const footerPlaceholder = document.getElementById('footer-placeholder');
+                if (footerPlaceholder) {
+                    const masterFooter = baseDoc.querySelector('footer.footer');
+                    if (masterFooter) footerPlaceholder.outerHTML = masterFooter.outerHTML;
                 }
             }
 

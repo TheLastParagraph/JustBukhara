@@ -152,12 +152,19 @@ ul {
 /* ================== NAVBAR ================== */
 
 .navbar {
-    position: relative;
+    position: absolute;
     top: 2rem;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    position: relative;
+    width: 100%;
 }
 
 .nav-links {

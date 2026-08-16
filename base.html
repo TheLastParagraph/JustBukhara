@@ -22,9 +22,25 @@
 </head>
 <body>
 
-    <!-- The dynamic Javascript loader will inject header.html here -->
-    <!-- (If moving to Django/Flask, replace this with an include statement) -->
-    <div id="header-placeholder"></div>
+    <!-- Master Header -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <nav class="nav-links" id="main-nav">
+                <a href="index.html" data-page="index">Home</a>
+                <a href="products.html" data-page="products">Menu</a>
+                <a href="about.html" data-page="about">About</a>
+                <a href="index.html#location">Location</a>
+            </nav>
+            <div class="logo" id="main-logo">Just Bukhara</div>
+            <div class="nav-controls">
+                <a href="index.html#location" class="btn btn-primary contact-btn" id="contact-btn">Contact Us</a>
+                <button class="hamburger" aria-label="Menu" id="main-hamburger">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <!-- MAIN PAGE CONTENT GOES HERE -->
     <main>
@@ -38,8 +54,37 @@
 
     </main>
 
-    <!-- The dynamic Javascript loader will inject footer.html here -->
-    <div id="footer-placeholder"></div>
+    <!-- Master Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top fade-up">
+                <div class="newsletter">
+                    <h2>Stay in touch</h2>
+                    <div class="newsletter-form">
+                        <input type="tel" placeholder="Enter your phone number">
+                        <button class="btn btn-dark">Subscribe</button>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="products.html">Full Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#location">Location</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="tel:+919597710592">Call +91 95977 10592</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom fade-up">
+                <h2 class="footer-logo">Just Bukhara</h2>
+                <div class="footer-meta">
+                    <p>Opposite Indian Oil Petrol Pump,<br>Magam, J&K 193401</p>
+                    <p>&copy; 2026 Just Bukhara</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Core Javascript -->
     <script src="script.js"></script>
